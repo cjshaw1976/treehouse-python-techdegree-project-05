@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+{% from 'macros.html' import render_field %}
+{% block content %}
+{% if form.id.data == 0 %}
+<div class="new-entry">
+    <h2>New Entry</h2>
+{% else %}
+<div class="edit-entry">
+    <h2>Edit Entry</h2>
+{% endif %}
+
+    <form method="POST" action="">
+        {% for field in form %}
+            {{ render_field(field) }}
+        {% endfor %}
+        {% if form.id.data == 0 %}
+        <input type="submit" value="Publish Entry" class="button">
+        {% else %}
+        <input type="submit" value="Update Entry" class="button">
+        {% endif %}
+        <a href="/" class="button button-secondary">Cancel</a>
+    </form>
+</div>
+{% endblock %}
