@@ -155,11 +155,16 @@ ul li a {
 .new-entry {
 	max-width: 800px;
 	margin: 0 auto;
-	padding: 70px 0 150px 0;
+	padding: 0 0 150px 0;
 }
 .edit-entry h2,
 .new-entry h2 {
 	margin-bottom: 35px;
+}
+.entry-list h1 {
+	text-align: center;
+	margin-bottom: 40px;
+	text-decoration: underline;
 }
 .entry-list article {
 	margin-bottom: 70px;
