@@ -23,6 +23,7 @@ header .logo i {
 	margin: 20px 0 0 -5px;
 	float: left;
 	font-size: 40px;
+	padding-right: 20px
 }
 header .button {
 	float: right;
@@ -33,8 +34,13 @@ footer {
 	padding: 35px 0;
 	border-top: 2px dotted #678f89;
 }
-
-
+.notification {
+	text-align: center;
+	background: #678f89;
+	color: #FFF;
+	padding: 10px 0;
+	font-size: 14px;
+}
 
 /* ==========================================================================
    Button Styles
@@ -106,7 +112,8 @@ h1 {
 h2 {
 	font-size: 32px;
 }
-h2 a {
+h2 a,
+h3 a {
 	text-decoration: none;
 	color: #000;
 }

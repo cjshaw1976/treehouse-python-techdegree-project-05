@@ -23,7 +23,12 @@
             <div class="container">
                 <div class="site-header">
                     <a class="logo" href="/"><i class="material-icons">library_books</i></a>
+                    {% if current_user.is_authenticated %}
+                    <a class="button icon-right left" href="/logout"><span>Logout</span> <i class="material-icons">person_outline</i></a>
                     <a class="button icon-right" href="/entry"><span>New Entry</span> <i class="material-icons">add</i></a>
+                    {% else %}
+                    <a class="button icon-right left" href="/login"><span>Login</span> <i class="material-icons">code</i></a>
+                    {% endif %}
                 </div>
             </div>
         </header>

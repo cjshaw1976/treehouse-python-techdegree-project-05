@@ -8,7 +8,7 @@
 <div class="edit-entry">
     <h2>Edit Entry</h2>
 {% endif %}
-
+{{ tags }}
     <form method="POST" action="">
         {% for field in form %}
             {{ render_field(field) }}

@@ -5,9 +5,21 @@
     <article>
         <h2><a href="{{ url_for('index') }}/{{ entry.title.replace( ' ', '_') }}">{{ entry.title }}</a></h2>
         <time datetime="{{ entry.date.strftime('%Y-%m-%d') }}">{{ entry.date.strftime('%B %d, %Y') }}</time>
+        <h3>Tags:
+        {% for tag in entry.get_tags() %}
+        <a href="/entries/tags/{{ tag.name }}">{{ tag.name }}</a>
+        {% endfor %}</h3>
     </article>
     {% else %}
+    {% if tag %}
+    <em>No entries with the tagged with {{ tag }}</em>
+    {% else %}
+    {% if current_user.is_authenticated %}
     <em>No entries here so far. Click the 'New Entry' button to create one</em>
+    {% else %}
+    <em>No entries here so far. You need to be logged in to create one</em>
+    {% endif %}
+    {% endif %}
     {% endfor %}
 </div>
 {% endblock %}

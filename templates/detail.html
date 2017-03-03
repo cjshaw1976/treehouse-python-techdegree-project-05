@@ -1,8 +1,10 @@
 {% extends "layout.html" %}
 {% block content %}
 <div class="entry-list single">
+    {% if current_user.is_authenticated %}
     <a class="button icon-right left" href="/entry/{{ entry.title.replace(' ', '_') }}"><span>Edit Entry</span> <i class="material-icons">create</i></a>
     <a class="button icon-right delete" href="/entries/delete/{{ entry.title.replace(' ', '_') }}"><span>Delete Entry</span> <i class="material-icons">remove</i></a>
+    {% endif %}
     <article>
         <h1>{{ entry.title }}</h1>
         <time datetime="{{ entry.date.strftime('%Y-%m-%d') }}">{{ entry.date.strftime('%B %d, %Y') }}</time>
@@ -17,6 +19,13 @@
         <div class="entry">
             <h3>Resources to Remember:</h3>
             {{ entry.resources_to_remember }}
+        </div>
+        <div class="entry">
+            <h3>Tags:
+            {% for tag in entry.get_tags() %}
+            <a class="button tag" href="/entries/tags/{{ tag.name }}"><span>{{ tag.name }}</span></a>
+            {% endfor %}
+            </h3>
         </div>
     </article>
 </div>

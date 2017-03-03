@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import (StringField, DateField, IntegerField, TextAreaField,
-                     HiddenField)
+                     HiddenField, PasswordField)
 from wtforms.validators import (DataRequired, Length, NumberRange,
                                 ValidationError)
 
@@ -47,3 +47,11 @@ class NewForm(FlaskForm):
         'Resources to Remember',
         validators=[DataRequired()]
     )
+    tags = StringField(
+        'Tags (separate with commas)'
+    )
+
+
+class LoginForm(FlaskForm):
+    username = StringField('User Name', validators=[DataRequired()])
+    password = PasswordField('Password', validators=[DataRequired()])
